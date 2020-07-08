@@ -95,7 +95,7 @@ def getPlayerStats(id_player):
 start = time.time()
 
 base_url = "http://sofifa.com"
-
+print("START")
 response = requests.get(base_url + "/leagues")
 selector = Selector(response.text)
 
@@ -135,7 +135,7 @@ for team in arr_teams:
     response = requests.get(base_url + "/team/" + team["id_team"])
     print(base_url + "/team/" + team["id_team"])
     selector = Selector(response.text)
-    players = selector.xpath("//*[@id='adjust']/div/div[2]/table/tbody/tr//a[contains(@href,'/player/')]").getall()
+    players = selector.xpath("//*[@id='adjust']/div/div[1]/div[1]/table/tbody/tr//a[contains(@href,'/player/')]").getall()
     for index, player in enumerate(players):
         item = {"id_player": Selector(player).xpath("//@href").get().split('/')[2],
                 "name": Selector(player).xpath("//text()").get().lstrip()}
