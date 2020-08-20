@@ -147,7 +147,6 @@ for team in arr_teams:
     arr_league.append({"name_team": team["name_team"], "players": arr_players.copy()})
     dataPlayer.clear()
     arr_players.clear()
-    break
 #end for team
 
 # Save the dictonary into a JSON file in your Desktop!
