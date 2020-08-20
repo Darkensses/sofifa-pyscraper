@@ -38,15 +38,68 @@ Al terminar la ejecucion del script podrás notar que tu consola estará llena d
 Por el momento puedes cambiar la liga para obtener otros equipos, tan solo debes poner el indice de la liga que se imprime en la consola:
 
 ```python
-#Liga MX = 39
-response = requests.get(base_url + "/league/" + arr_leagues[39].get("id_league"))
+#Liga MX = 26
+response = requests.get(base_url + "/league/" + arr_leagues[26].get("id_league"))
 ```
+
+Puedes encontrar el index de la liga que quieras utilizar el script en la siguiente tabla. El index puede variar cada cierto tiempo debido a los cambios que sofifa realiza en su página, sin embargo el id de cada liga es único y siempre será el mismo.
+
+### Ligas
+| index | id | nombre |
+|---|---|---|
+0 | 353 | Argentina Primera División
+1 | 351 | Australian Hyundai A-League
+2 | 80 | Austrian Football Bundesliga
+3 | 4 | Belgian Jupiler Pro League
+4 | 7 | Campeonato Brasileiro Série A
+5 | 335 | Chilian Campeonato Nacional
+6 | 2012 | Chinese Super League
+7 | 336 | Colombian Liga Postobón
+8 | 317 | Croatian Prva HNL
+9 | 319 | Czech Republic Gambrinus Liga
+10 | 1 | Danish Superliga
+11 | 2018 | Ecuadorian Serie A
+12 | 14 | English League Championship
+13 | 60 | English League One
+14 | 61 | English League Two
+15 | 322 | Finnish Veikkausliiga
+16 | 17 | French Ligue 2
+17 | 20 | German 2. Bundesliga
+18 | 2076 | German 3. Bundesliga
+19 | 63 | Greek Super League
+20 | 10 | Holland Eredivisie
+21 | 78 | International
+22 | 32 | Italian Serie B
+23 | 349 | Japanese J. League Division 1
+24 | 83 | Korean K League Classic
+25 | 2017 | Liga de Fútbol Profesional Boliviano
+26 | 341 | Mexican Liga MX
+27 | 41 | Norwegian Eliteserien
+28 | 337 | Paraguayan Primera División
+29 | 2020 | Peruvian Primera División
+30 | 66 | Polish T-Mobile Ekstraklasa
+31 | 308 | Portuguese Liga ZON SAGRES
+32 | 65 | Rep. Ireland Airtricity League
+33 | 330 | Romanian Liga I
+34 | 67 | Russian Premier League
+35 | 350 | Saudi Abdul L. Jameel League
+36 | 50 | Scottish Premiership
+37 | 347 | South African Premier Division
+38 | 54 | Spanish Segunda División
+39 | 56 | Swedish Allsvenskan
+40 | 189 | Swiss Super League
+41 | 68 | Turkish Süper Lig
+42 | 2013 | UAE Arabian Gulf League
+43 | 39 | USA Major League Soccer
+44 | 332 | Ukrainian Premier League
+45 | 338 | Uruguayan Primera División
+46 | 2019 | Venezuelan Primera División
 
 
 ## Construido con 🛠️
 
-* Python - El lengujae del script
-* pip - Instaldor depaquetes
+* Python - El lenguaje del script
+* pip - Instalador depaquetes
 * PyCharm - IDE para python
 * [editor.md](https://pandao.github.io/editor.md/en.html) - Usado para crear este bonito readme.md
 
