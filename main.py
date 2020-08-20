@@ -96,26 +96,25 @@ start = time.time()
 
 base_url = "http://sofifa.com"
 print("START")
-response = requests.get(base_url + "/leagues")
+response = requests.get(base_url)
 selector = Selector(response.text)
 
-# leagues_href = selector.xpath("//a[contains(@href,'/league/')]/@href").getall()
-# leagues_name = selector.xpath("//a[contains(@href,'/league/')]/text()").getall()
-leagues = selector.xpath("//a[contains(@href,'/league/')]").getall()
 arr_leagues = []
 arr_teams = []
 arr_players = []
 
+leagues = selector.xpath("//select[@data-placeholder='Leagues']/optgroup[2]/option").getall()
+
 for index, league in enumerate(leagues):
-    item = {"id_league": Selector(league).xpath("//@href").get().replace("/league/", ""),
+    item = {"id_league": Selector(league).xpath("//@value").get(),
             "name_league": re.sub("(\s)(\\xa0)?(\(\d\))", "", Selector(league).xpath("//text()").get())}
 
     arr_leagues.append(item)
     print(f"{index} : {arr_leagues[index]}")
 # end for
 print("---------------")
-# Liga MX
-response = requests.get(base_url + "/league/" + arr_leagues[39].get("id_league"))
+# Liga MX = 26
+response = requests.get(base_url + "/teams?type=all&lg%5B%5D=" + arr_leagues[26].get("id_league"))
 selector = Selector(response.text)
 teams = selector.xpath("//a[contains(@href,'/team/')]").getall()
 for index, team in enumerate(teams):
@@ -127,10 +126,9 @@ for index, team in enumerate(teams):
 # end for
 print("---------------")
 
-dataleague = {}
 dataPlayer = {}
+arr_league = []
 
-# Santos Laguna: 10, Tigres: 7
 for team in arr_teams:
     response = requests.get(base_url + "/team/" + team["id_team"])
     print(base_url + "/team/" + team["id_team"])
@@ -143,16 +141,19 @@ for team in arr_teams:
         stats = getPlayerStats(item.get("id_player"))
         item.update(stats)
         dataPlayer["{}".format(item.get("id_player"))] = item
+        arr_players.append(item)
         print(f"{index} : {item}")
     # end for player
-    dataleague["{}".format(team["name_team"])] = (dataPlayer.copy())
+    arr_league.append({"name_team": team["name_team"], "players": arr_players.copy()})
     dataPlayer.clear()
+    arr_players.clear()
+    break
 #end for team
 
 # Save the dictonary into a JSON file in your Desktop!
 desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
 with open(desktop + "\\ligaMX.json", 'w', encoding='utf-8') as fp:
-    json.dump(dataleague, fp, sort_keys=True, indent=4, ensure_ascii=False)
+    json.dump(arr_league, fp, sort_keys=True, indent=4, ensure_ascii=False)
 
 end = time.time()
 
