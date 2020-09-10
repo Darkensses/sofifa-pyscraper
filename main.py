@@ -21,7 +21,7 @@ def getPlayerStats(id_player):
     # Get general info about Player
     pInfo = selector.xpath("//div[@class='info']/div/text()[last()]").get()
 
-    pDict["age"] = re.search("[0-9]{2}(?=y.o)", pInfo).group(0)
+    pDict["age"] = int(re.search("[0-9]{2}(?=y.o)", pInfo).group(0))
 
     # Get height and weight in Imperial System
     feet = int(re.search("[0-9]*(?=')", pInfo).group(0))
@@ -103,7 +103,7 @@ arr_leagues = []
 arr_teams = []
 arr_players = []
 
-leagues = selector.xpath("//select[@data-placeholder='Leagues']/optgroup[2]/option").getall()
+leagues = selector.xpath("//select[@data-placeholder='Leagues']//option").getall()
 
 for index, league in enumerate(leagues):
     item = {"id_league": Selector(league).xpath("//@value").get(),
@@ -147,6 +147,7 @@ for team in arr_teams:
     arr_league.append({"name_team": team["name_team"], "players": arr_players.copy()})
     dataPlayer.clear()
     arr_players.clear()
+
 #end for team
 
 # Save the dictonary into a JSON file in your Desktop!

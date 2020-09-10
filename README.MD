@@ -47,53 +47,58 @@ Puedes encontrar el index de la liga que quieras utilizar el script en la siguie
 ### Ligas
 | index | id | nombre |
 |---|---|---|
-0 | 353 | Argentina Primera División
-1 | 351 | Australian Hyundai A-League
-2 | 80 | Austrian Football Bundesliga
-3 | 4 | Belgian Jupiler Pro League
-4 | 7 | Campeonato Brasileiro Série A
-5 | 335 | Chilian Campeonato Nacional
-6 | 2012 | Chinese Super League
-7 | 336 | Colombian Liga Postobón
-8 | 317 | Croatian Prva HNL
-9 | 319 | Czech Republic Gambrinus Liga
-10 | 1 | Danish Superliga
-11 | 2018 | Ecuadorian Serie A
-12 | 14 | English League Championship
-13 | 60 | English League One
-14 | 61 | English League Two
-15 | 322 | Finnish Veikkausliiga
-16 | 17 | French Ligue 2
-17 | 20 | German 2. Bundesliga
-18 | 2076 | German 3. Bundesliga
-19 | 63 | Greek Super League
-20 | 10 | Holland Eredivisie
-21 | 78 | International
-22 | 32 | Italian Serie B
-23 | 349 | Japanese J. League Division 1
-24 | 83 | Korean K League Classic
-25 | 2017 | Liga de Fútbol Profesional Boliviano
-26 | 341 | Mexican Liga MX
-27 | 41 | Norwegian Eliteserien
-28 | 337 | Paraguayan Primera División
-29 | 2020 | Peruvian Primera División
-30 | 66 | Polish T-Mobile Ekstraklasa
-31 | 308 | Portuguese Liga ZON SAGRES
-32 | 65 | Rep. Ireland Airtricity League
-33 | 330 | Romanian Liga I
-34 | 67 | Russian Premier League
-35 | 350 | Saudi Abdul L. Jameel League
-36 | 50 | Scottish Premiership
-37 | 347 | South African Premier Division
-38 | 54 | Spanish Segunda División
-39 | 56 | Swedish Allsvenskan
-40 | 189 | Swiss Super League
-41 | 68 | Turkish Süper Lig
-42 | 2013 | UAE Arabian Gulf League
-43 | 39 | USA Major League Soccer
-44 | 332 | Ukrainian Premier League
-45 | 338 | Uruguayan Primera División
-46 | 2019 | Venezuelan Primera División
+0 | 13 | English Premier League
+1 | 16 | French Ligue 1
+2 | 19 | German 1. Bundesliga
+3 | 31 | Italian Serie A
+4 | 53 | Spain Primera División
+5 | 353 | Argentina Primera División
+6 | 351 | Australian Hyundai A-League
+7 | 80 | Austrian Football Bundesliga
+8 | 4 | Belgian Jupiler Pro League
+9 | 7 | Campeonato Brasileiro Série A
+10 | 335 | Chilian Campeonato Nacional
+11 | 2012 | Chinese Super League
+12 | 336 | Colombian Liga Postobón
+13 | 317 | Croatian Prva HNL
+14 | 319 | Czech Republic Gambrinus Liga
+15 | 1 | Danish Superliga
+16 | 2018 | Ecuadorian Serie A
+17 | 14 | English League Championship
+18 | 60 | English League One
+19 | 61 | English League Two
+20 | 322 | Finnish Veikkausliiga
+21 | 17 | French Ligue 2
+22 | 20 | German 2. Bundesliga
+23 | 2076 | German 3. Bundesliga
+24 | 63 | Greek Super League
+25 | 10 | Holland Eredivisie
+26 | 78 | International
+27 | 32 | Italian Serie B
+28 | 349 | Japanese J. League Division 1
+29 | 83 | Korean K League Classic
+30 | 2017 | Liga de Fútbol Profesional Boliviano
+32 | 341 | Mexican Liga MX
+32 | 41 | Norwegian Eliteserien
+33 | 337 | Paraguayan Primera División
+34 | 2020 | Peruvian Primera División
+35 | 66 | Polish T-Mobile Ekstraklasa
+36 | 308 | Portuguese Liga ZON SAGRES
+37 | 65 | Rep. Ireland Airtricity League
+38 | 330 | Romanian Liga I
+39 | 67 | Russian Premier League
+40 | 350 | Saudi Abdul L. Jameel League
+41 | 50 | Scottish Premiership
+42 | 347 | South African Premier Division
+43 | 54 | Spanish Segunda División
+44 | 56 | Swedish Allsvenskan
+45 | 189 | Swiss Super League
+46 | 68 | Turkish Süper Lig
+47 | 2013 | UAE Arabian Gulf League
+48 | 39 | USA Major League Soccer
+49 | 332 | Ukrainian Premier League
+50 | 338 | Uruguayan Primera División
+51 | 2019 | Venezuelan Primera División
 
 
 ## Construido con 🛠️
