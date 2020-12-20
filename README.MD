@@ -2,7 +2,7 @@
 
 Scraper hecho en python para obtener la información importante y habilidades de todos los jugadores (por ahora de una liga determinada) de la pagina de sofifa.
 
-El motivo del desarrollo de esta herramineta fue porque sofifa no cuenta con alguna API para obtener información de forma rápida, por lo que obtener datos sobre equipos o jugadores era un proceso muy lento, asi que decidí automatizarlo ya que actualmente la información de los jugadores se utiliza para generar los equipo para un parche de Winning Eleven 2002.
+El motivo del desarrollo de esta herramienta fue porque sofifa no cuenta con alguna API para obtener información de forma rápida, por lo que obtener datos sobre equipos o jugadores era un proceso muy lento, asi que decidí automatizarlo ya que actualmente la información de los jugadores se utiliza para generar los equipo para un parche de Winning Eleven 2002.
 
 ## Comenzando 🚀
 
@@ -24,12 +24,13 @@ Descarga o clona el repo:
 Si descargaste el repo:
 - descomprime el .zip
 - Abre tu IDE preferido (como PyCharm)
-- Instala la libreria de parsel
+- Instala la libreria `parsel`
+- Instala la libreria `requests`
 - Ejecuta el script
 
 En caso de que hayas clonado el repo:
 - Abre tu consola y navega a la carpeta
-- Instala la libreria parsel: `pip instal parsel --user`
+- Instala la libreria parsel: `pip install parsel requests --user`
 - Ejecuta el script: `python main.py`
 
 Al terminar la ejecucion del script podrás notar que tu consola estará llena de toda la información recolectada 🧐 y que además en tu escritorio se habrá creado un archivo json con toda esa información 😮
@@ -78,7 +79,7 @@ Puedes encontrar el index de la liga que quieras utilizar el script en la siguie
 28 | 349 | Japanese J. League Division 1
 29 | 83 | Korean K League Classic
 30 | 2017 | Liga de Fútbol Profesional Boliviano
-32 | 341 | Mexican Liga MX
+31 | 341 | Mexican Liga MX
 32 | 41 | Norwegian Eliteserien
 33 | 337 | Paraguayan Primera División
 34 | 2020 | Peruvian Primera División
@@ -104,15 +105,15 @@ Puedes encontrar el index de la liga que quieras utilizar el script en la siguie
 ## Construido con 🛠️
 
 * Python - El lenguaje del script
-* pip - Instalador depaquetes
+* pip - Instalador de paquetes
 * PyCharm - IDE para python
 * [editor.md](https://pandao.github.io/editor.md/en.html) - Usado para crear este bonito readme.md
 
 ## Contribuyendo 🖇️
 
-Puedes contribuir a este repo con mejores y cosas que creas que sean de gran utilidad, tan solo hay x pequeñas restricciones:
+Puedes contribuir a este repo con mejores y cosas que creas que sean de gran utilidad, tan solo hay algunas pequeñas restricciones:
 
-* Los atributos de los jugadores que y están en el código se tienen que quedar con el mismo nombre.
+* Los atributos de los jugadores que ya están en el código se tienen que quedar con el mismo nombre.
 * Se pueden agregar nuevos atrubutos o información siempre y cuando se mantengan los atributos que ya existen.
 * Nada de codigo dañino. Es un simple e inocente scraper a una muy buena página con excelente información.
 
