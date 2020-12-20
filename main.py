@@ -154,11 +154,13 @@ for index, league in enumerate(leagues):
 # end for
 print("---------------")
 
-response = requests.get(base_url + "/teams?type=all&lg%5B%5D=" + str(arr_leagues[48].get("id_league")))
+# Check the leagues indexes at https://github.com/Darkensses/sofifa-pyscraper#ligas
+# Change the league index in the line below: arr_leagues[FAV_INDEX]
+response = requests.get(base_url + "/teams?type=all&lg%5B%5D=" + str(arr_leagues[2].get("id_league")))
 selector = Selector(response.text)
 teams = selector.xpath("//a[contains(@href,'/team/')]").getall()
 for index, team in enumerate(teams):
-    item = {"id_team": re.sub("\D", "", Selector(team).xpath("//@href").get()),
+    item = {"id_team": Selector(team).xpath("//@href").get().split("/")[2],
             "name_team": Selector(team).xpath("//text()").get()}
 
     arr_teams.append(item)
