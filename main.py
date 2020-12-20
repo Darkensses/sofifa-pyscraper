@@ -7,6 +7,42 @@ from parsel import Selector
 import time
 import re
 
+import unicodedata
+
+def strip_accents(text):
+    """
+    Strip accents from input String.
+
+    :param text: The input string.
+    :type text: String.
+
+    :returns: The processed String.
+    :rtype: String.
+    """
+    try:
+        text = unicode(text,'utf-8')
+    except (TypeError, NameError): # unicode is a default on python 3
+        pass
+    text = unicodedata.normalize('NFD', text)
+    text = text.encode('ascii', 'ignore')
+    text = text.decode("utf-8")
+    return str(text)
+
+def text_to_id(text):
+    """
+    Convert input text to id.
+
+    :param text: The input string.
+    :type text: String.
+
+    :returns: The processed String.
+    :rtype: String.
+    """
+    text = strip_accents(text.lower())
+    text = re.sub('[ ]+', '_', text)
+    text = re.sub('[^0-9a-zA-Z_-]', '', text)
+    return text
+
 # function to convert string to camelCase
 def camelCase(string):
   string = re.sub(r"(_|-)+", " ", string).title().replace(" ", "")
@@ -106,15 +142,19 @@ arr_players = []
 leagues = selector.xpath("//select[@data-placeholder='Leagues']//option").getall()
 
 for index, league in enumerate(leagues):
-    item = {"id_league": Selector(league).xpath("//@value").get(),
+    item = {"id_league": int(Selector(league).xpath("//@value").get()),
             "name_league": re.sub("(\s)(\\xa0)?(\(\d\))", "", Selector(league).xpath("//text()").get())}
 
+    item["data"] = text_to_id(item.get("name_league")) + ".json";
     arr_leagues.append(item)
     print(f"{index} : {arr_leagues[index]}")
+    desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+    with open(desktop + "\\leagues.json", 'w', encoding='utf-8') as fp:
+        json.dump(arr_leagues, fp, sort_keys=True, indent=4, ensure_ascii=False)
 # end for
 print("---------------")
-# Liga MX = 26
-response = requests.get(base_url + "/teams?type=all&lg%5B%5D=" + arr_leagues[26].get("id_league"))
+
+response = requests.get(base_url + "/teams?type=all&lg%5B%5D=" + str(arr_leagues[48].get("id_league")))
 selector = Selector(response.text)
 teams = selector.xpath("//a[contains(@href,'/team/')]").getall()
 for index, team in enumerate(teams):
@@ -133,7 +173,7 @@ for team in arr_teams:
     response = requests.get(base_url + "/team/" + team["id_team"])
     print(base_url + "/team/" + team["id_team"])
     selector = Selector(response.text)
-    players = selector.xpath("//*[@id='adjust']/div/div[1]/div[1]/table/tbody/tr//a[contains(@href,'/player/')]").getall()
+    players = selector.xpath("//text()[.='Squad']/following::table[1]/tbody/tr//a[contains(@href,'/player/')]").getall()
     for index, player in enumerate(players):
         item = {"id_player": Selector(player).xpath("//@href").get().split('/')[2],
                 "name": Selector(player).xpath("//text()").get().lstrip()}
